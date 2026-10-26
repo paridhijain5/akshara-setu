@@ -1,0 +1,165 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Akshara Setu design system.
+ * Maroon #7A1620, gold #F2B01E, cream #FFF8E7, serif headings.
+ */
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --font-display: "Noto Serif Kannada", Georgia, serif;
+  --font-sans: "Noto Serif Kannada", Georgia, serif;
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: #fff8e7;
+  --foreground: #33161a;
+  --card: #ffffff;
+  --card-foreground: #33161a;
+  --popover: #ffffff;
+  --popover-foreground: #33161a;
+  --primary: #7a1620;
+  --primary-foreground: #fff8e7;
+  --secondary: #f6ecd2;
+  --secondary-foreground: #7a1620;
+  --muted: #f3ead6;
+  --muted-foreground: #8a6a5b;
+  --accent: #f2b01e;
+  --accent-foreground: #3b2405;
+  --destructive: #b3261e;
+  --destructive-foreground: #fff8e7;
+  --border: #e7d9b8;
+  --input: #e7d9b8;
+  --ring: #7a1620;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    font-family: "Noto Serif Kannada", Georgia, serif;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+}
+
+@utility gold-text {
+  color: var(--color-accent);
+}
+
+@utility card-raised {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 1px 2px rgb(122 22 32 / 0.06), 0 8px 24px -16px rgb(122 22 32 / 0.25);
+}
+
+@utility btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  padding: 0.55rem 1.1rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.05s ease;
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+}
+
+@utility btn-primary {
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+
+  &:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--color-primary) 88%, black);
+  }
+}
+
+@utility btn-outline {
+  background: var(--color-card);
+  color: var(--color-primary);
+  border-color: color-mix(in srgb, var(--color-primary) 35%, transparent);
+
+  &:hover:not(:disabled) {
+    background: var(--color-secondary);
+  }
+}
+
+@utility btn-gold {
+  background: var(--color-accent);
+  color: var(--color-accent-foreground);
+
+  &:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--color-accent) 88%, black);
+  }
+}
+
+@utility chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: var(--color-secondary);
+  color: var(--color-secondary-foreground);
+  border: 1px solid var(--color-border);
+  max-width: 100%;
+}
+
+@utility read-along-word {
+  border-radius: 0.25rem;
+  padding: 0 0.1rem;
+  transition: background-color 0.1s ease;
+
+  &.active {
+    background: var(--color-accent);
+    color: var(--color-accent-foreground);
+  }
+}
