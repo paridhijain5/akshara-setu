@@ -4,7 +4,7 @@
 
 Kannada Digital Innovation Hackathon 2026 | **Problem Statement 05: Kannada Text Digitization**
 
-Live demo: [https://akshara-setu.lovable.app/] (no login required)
+Live demo: https://akshara-setu.lovable.app/ (no login required)
 
 ## The problem
 Kannada text in photos, scans and old books is just a picture. It can't be searched, copied, read aloud or translated, and typing it by hand is slow.
