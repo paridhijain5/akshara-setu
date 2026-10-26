@@ -1,29 +1,40 @@
-# Welcome to your Lovable project
+# Akshara Setu (ಅಕ್ಷರ ಸೇತು)
 
-This project was built with [Lovable](https://lovable.dev).
+**A bridge from Kannada pages to editable, searchable, understandable text.**
 
-## Build with Lovable
+Kannada Digital Innovation Hackathon 2026 | **Problem Statement 05: Kannada Text Digitization**
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Live demo: [https://akshara-setu.lovable.app/] (no login required)
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+## The problem
+Kannada text in photos, scans and old books is just a picture. It can't be searched, copied, read aloud or translated, and typing it by hand is slow.
 
-## Development
+## What it does
+- **Scan:** upload an image or take a photo of printed Kannada
+- **Hybrid OCR:** Vision AI for accuracy, with an offline Tesseract.js fallback
+- **Edit:** correct mistakes in the recognized text, with Re-scan
+- **Listen:** Kannada text-to-speech with read-along word highlighting
+- **Translate:** English or Hindi
+- **Read in English letters:** Roman-script view for non-Kannada readers
+- **Key details:** auto-detects dates, phone numbers, amounts and Kannada numerals
+- **Library:** save scans, search across them, export as .txt or JSON
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+## Tech stack
+TanStack Start (React + TypeScript), Tailwind CSS, Lovable Cloud (server function + Lovable AI vision model), Tesseract.js (offline fallback), Web Speech API (kn-IN), MyMemory translation API, Fuse.js, IndexedDB.
 
-```sh
-git clone <this-repository-url>
-cd <repository-name>
+## Architecture
+Image > resize (max 1600px) > server function calls vision AI (fallback: in-browser Tesseract.js) > editable text > listen / translate / Roman script / key details > saved in browser IndexedDB library. Images are not stored on the server.
+
+## Run locally
+git clone https://github.com/paridhijain5/akshara-setu
+cd akshara-setu
 npm i
 npm run dev
-```
 
-## Built with
+Environment variables are managed by Lovable Cloud. No secrets are committed. See `.env.example` for the variable names used.
 
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+## Test credentials
+None needed. The app has no login.
+
+## Limitations and future scope
+Best on clear printed Kannada. Handwriting and Halegannada inscriptions are future work, along with an offline PWA and crowd-sourced corrections.
